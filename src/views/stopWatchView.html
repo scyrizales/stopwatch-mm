@@ -1,5 +1,5 @@
 <div>
-    <div>{{ showntime }}</div>
+    <div>{{ showntime.getTime() | date:"mm:ss" }}</div>
     <button ng-click="start()">Start</button>
     <button ng-click="stop()">Stop</button>    
 </div>
