@@ -1,10 +1,17 @@
 function Time(){
     this.elapsedSeconds = 0;
+    this.currentTime = new Date(1970,0,1);
 }
 
 Time.prototype.tick = function(){
     this.elapsedSeconds++;
 }
+
+Time.prototype.getTime = function(){
+    this.currentTime.setSeconds(this.elapsedSeconds);
+    return this.currentTime;
+}
+
 
 function Ticker(someTime){
     this.time = someTime;

@@ -8,7 +8,8 @@ describe("Stopwatch MM", function(){
         time.tick();
         
         //then
-        expect(time.elapsedSeconds).toBe(1);
+        var expectedTime = new Date(1970,0,1); 
+        expect(time.currentTime.getTime()).toBe(expectedTime.getTime());
     });
     
     describe("Async behaviour", function(){
