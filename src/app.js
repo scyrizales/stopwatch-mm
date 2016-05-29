@@ -13,26 +13,27 @@ Time.prototype.getTime = function(){
 }
 
 
-function Ticker(someTime){
+function Ticker(someTime, someInterval){
     this.time = someTime;
-    this.interval = null;
+    this.interval = someInterval;
+    this.intervalId = null;
 }
 
 Ticker.prototype.start = function(){
-    if(this.interval) return;
-    this.interval = setInterval(function(){
+    if(this.intervalId) return;
+    this.intervalId = this.interval(function(){
         this.time.tick();    
-    }.bind(this),1000);   
+    }.bind(this), 1000);   
 }
 
 Ticker.prototype.stop = function(){
-    clearInterval(this.interval);
-    this.interval = null;
+    this.interval.cancel(this.intervalId);
+    this.intervalId = null;
 }
 
-function StopwatchController($scope, Ticker, Time){
+function StopwatchController($scope, $interval, Ticker, Time){
     $scope.showntime = new Time();
-    var ticker = new Ticker($scope.showntime);
+    var ticker = new Ticker($scope.showntime, $interval);
     
     $scope.start = function(){
         ticker.start();

@@ -13,10 +13,15 @@ describe("Stopwatch MM", function(){
     });
     
     describe("Async behaviour", function(){
-        var time, ticker;
-        beforeEach(function(done) { 
+        var time, ticker, interval;
+        
+        beforeEach(function(done) {
+            interval = function (fn, ms) {
+                setInterval(fn, ms);
+            };
+            interval.cancel = function () {}
             time = new Time();
-            ticker = new Ticker(time);
+            ticker = new Ticker(time, interval);
             ticker.start();
             setTimeout(function(){
                 done();
@@ -27,7 +32,7 @@ describe("Stopwatch MM", function(){
             ticker.stop();            
         });
         
-    })
+    });
     
     it("View shows time",inject(
         function($compile, $rootScope) {
