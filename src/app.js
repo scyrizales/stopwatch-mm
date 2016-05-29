@@ -30,5 +30,36 @@ Ticker.prototype.stop = function(){
     this.interval = null;
 }
 
-function stopwatchController(){
+function StopwatchController($scope, Ticker, Time){
+    $scope.showntime = new Time();
+    var ticker = new Ticker($scope.showntime);
+    
+    $scope.start = function(){
+        ticker.start();
+    }
+    
+    $scope.stop = function(){
+        ticker.stop();
+    }
+
 }
+
+// Genrar apliacion angular
+angular.module("StopwatchMM", ["ngRoute"]);
+angular.module("StopwatchMM").config(function ($routeProvider) {
+    $routeProvider.when("/", {
+        controller: "StopwatchController",
+        templateUrl: "/src/views/stopWatchView.html"
+    })
+})
+angular.module("StopwatchMM").factory("Time",function(){
+    return Time;
+});
+angular.module("StopwatchMM").factory("Ticker",function(){
+    return Ticker;
+});
+angular.module("StopwatchMM").controller("StopwatchController",StopwatchController);
+
+
+
+

@@ -28,6 +28,18 @@ describe("Stopwatch MM", function(){
         });
         
     })
-
+    
+    it("View shows time",inject(
+        function($compile, $rootScope) {
+            var template = $.ajax("/src/views/stopWatchView.html", { async: false }).responseText;
+            console.log(template);
+            var scope = $rootScope.$new();
+            scope.showntime = 1
+            var view = $compile(template)(scope);
+            scope.$apply();
+            var div = view.find("div");
+            expect(+div.html()).toBe(1);
+        }
+    ))
 })
 
