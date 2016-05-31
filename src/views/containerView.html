@@ -1,0 +1,19 @@
+<div ng-init="mode = 'timer'">
+    <button class="btn-primary" ng-click="mode = 'timer'">Mode Timer</button>
+    <button class="btn-primary" ng-click="mode = 'countdown'">Mode Countdown</button>
+    <button class="btn-primary" ng-click="mode = 'marshmallow'">Mode Marshmallow</button>
+    <div ng-if="mode === 'timer'" class="big">
+
+    </div>
+    <div ng-if="mode === 'countdown'" class="big">
+        <countdown title="Countdown"></countdown>
+    </div>
+    <div ng-if="mode === 'marshmallow'">
+        <div>
+            <countdown title="Marshmallow" minutes="18"></countdown>
+        </div>
+        <div>
+            <countdown title="Survival" minutes="1"></countdown>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+.stopwatch {
+    width: 340px;
+    transform-origin: 50% 0;
+    display: inline-block;
+}
+.stopwatch .col-xs-6, .stopwatch .col-xs-12 {
+    padding: 0 5px;
+}
+.timer {
+    background-color: #E1E3FF;
+    border: 3px solid black;
+    border-radius: 5px;
+    font-size: 60px;
+    padding: 5px 25px;
+    display: inline-block;
+    height: 60px;
+    line-height: 70%;
+}
+
+.button {
+    border-radius: 5px;
+    border: 3px solid black;
+    font-size: 30px;
+    width: 140px;
+    margin-top: 5px;
+}
+
+.start-button {
+    background-color: #139E13;
+}
+
+.stop-button {
+    background-color: #1760B7;
+}
+
+.clear-button {
+    background-color: #9D1515;
+}
+
+audio {
+    height: 70px;
+}
+#playlist,audio{
+    background:#666;
+    width:320px;
+    padding:20px;
+}
+.active a{
+    color:#5DB0E6;
+    text-decoration:none;
+}
+li a{
+    color:#eeeedd;
+    background:#333;
+    padding:5px;
+    display:block;
+}
+li a:hover{
+    text-decoration:none;
+}
+
+@media only screen and (min-width: 480px) {
+    .big .stopwatch {
+        transform: scale(1);
+    }
+}
+
+@media only screen and (min-width: 770px) {
+    .big .stopwatch {
+        transform: scale(1.5);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .big .stopwatch {
+        transform: scale(2.5);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .big .stopwatch {
+        transform: scale(3);
+    }
+}
